@@ -4,6 +4,8 @@
  */
 package tp1_manipnombresint_andre;
 
+import java.util.Scanner;
+
 /**
  *
  * @author maxim
@@ -22,7 +24,7 @@ public class TP1_manipNombresInt_ANDRE {
         System.out.print("Entrez le premier entier : ");
         int a = sc.nextInt();
 
-        System.out.print("Entrez le deuxième entier : ");
+        System.out.print("Entrez le deuxieme entier : ");
         int b = sc.nextInt();
 
         // Afficher des entiers
@@ -34,23 +36,19 @@ public class TP1_manipNombresInt_ANDRE {
         int produit = a * b;
 
         System.out.println("Somme : " + somme);
-        System.out.println("Différence : " + difference);
+        System.out.println("Difference : " + difference);
         System.out.println("Produit : " + produit);
 
-        // 3. Calcul du quotient entier et du reste de la division euclidienne
-        if (b != 0) { // Vérifie que la division est possible
+        // Calcul du quotient + division euclidienne
+        if (b != 0) {
             int quotient = a / b;
             int reste = a % b;
             System.out.println("Quotient entier de a/b : " + quotient);
-            System.out.println("Reste de la division euclidienne de a par b : " + reste);
+            System.out.println("Le reste de la division euclidienne de vos deux nombre est: " + reste);
         } else {
-            System.out.println("Division par zéro impossible !");
-        }
-
-        // Fermeture du scanner
-        sc.close();
+            System.out.println("Hmm ? Une division par 0 ?? Choisi un autre nombre à diviser !");
+        }       
     }
 }
 
     
-}
