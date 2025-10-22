@@ -18,14 +18,14 @@ public class TP1_manipNombresInt_ANDRE {
         // lire les entrées clavier
         Scanner sc = new Scanner(System.in);
 
-        // 1. Saisie des deux entiers
+        // Saisie des 2 entiers
         System.out.print("Entrez le premier entier : ");
         int a = sc.nextInt();
 
         System.out.print("Entrez le deuxième entier : ");
         int b = sc.nextInt();
 
-        // Affichage des entiers saisis
+        // Afficher des entiers
         System.out.println("Vous avez saisi : a = " + a + " et b = " + b);
 
         // 2. Calcul et affichage des opérations de base
