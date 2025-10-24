@@ -48,16 +48,24 @@ public class TP1_convertisseur_ANDRE {
          */
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+         Scanner sc = new Scanner(System.in);
 
         System.out.print("Entrez une temperature en degres Celsius : ");
-        double tCelsius = sc.nextDouble();
+        double tCelcius = sc.nextDouble();
 
-        // Formule : T(K) = T(°C) + 273.15
-        double tKelvin = tCelsius + 273.15;
+        System.out.println("En Kelvin : " + CelciusVersKelvin(tCelcius));
+        System.out.println("En Fahrenheit : " + CelciusVersFarenheit(tCelcius));
 
-        // Affichage du résultat
-        System.out.println("Temperature en degres Celsius : " + tCelsius);
-        System.out.println("Temperature correspondante en degres Kelvin : " + tKelvin);
+        System.out.print("Entrez une temperature en Kelvin : \n");
+        double tKelvin = sc.nextDouble();
+        System.out.println("En Celsius : " + KelvinVersCelcius(tKelvin));
+        System.out.println("En Fahrenheit : " + KelvinVersFarenheit(tKelvin));
+
+        System.out.print("Entrez une temperature en Fahrenheit : \n");
+        double tFarenheit = sc.nextDouble();
+        System.out.println("En Celsius : " + FarenheitVersCelcius(tFarenheit));
+        System.out.println("En Kelvin : " + FarenheitVersKelvin(tFarenheit));
+
+        sc.close();
     }
 }
