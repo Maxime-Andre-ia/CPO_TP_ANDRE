@@ -65,7 +65,5 @@ public class TP1_convertisseur_ANDRE {
         double tFarenheit = sc.nextDouble();
         System.out.println("En Celsius : " + FarenheitVersCelcius(tFarenheit));
         System.out.println("En Kelvin : " + FarenheitVersKelvin(tFarenheit));
-
-        sc.close();
     }
 }
