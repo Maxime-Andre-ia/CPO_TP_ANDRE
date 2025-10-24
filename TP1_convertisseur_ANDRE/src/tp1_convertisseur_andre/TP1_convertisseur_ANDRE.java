@@ -12,58 +12,88 @@ import java.util.Scanner;
  */
 public class TP1_convertisseur_ANDRE {
 
-    public static double CelciusVersKelvin(double tCelcius) {
-        double tKelvin = tCelcius + 273.15;
-        return tKelvin;
+    public static double CelciusVersKelvin(double tcelcius) {
+        double tkelvin = tcelcius + 273.15;
+        return tkelvin;
     }
 
-    public static double KelvinVersCelcius(double tKelvin) {
-        double tCelcius = tKelvin - 273.15;
-        return tCelcius;
+    public static double KelvinVersCelcius(double tkelvin) {
+        double tcelcius = tkelvin - 273.15;
+        return tcelcius;
     }
 
-    public static double FarenheitVersCelcius(double tFarenheit) {
-        double tCelcius = (tFarenheit - 32) * 5 / 9;
-        return tCelcius;
+    public static double FarenheitVersCelcius(double tfarenheit) {
+        double tcelcius = (tfarenheit - 32) / 1.8;
+        return tcelcius;
     }
 
-    public static double CelciusVersFarenheit(double tCelcius) {
-        double tFarenheit = (tCelcius * 9 / 5) + 32;
-        return tFarenheit;
+    public static double CelciusVersFarenheit(double tcelcius) {
+        double tfarenheit = (tcelcius * 1.8) + 32;
+        return tfarenheit;
     }
 
-    public static double KelvinVersFarenheit(double tKelvin) {
-        double tFarenheit = (tKelvin - 273.15) * 9 / 5 + 32;
-        return tFarenheit;
+    public static double KelvinVersFarenheit(double tkelvin) {
+        double tfarenheit = CelciusVersFarenheit(KelvinVersCelcius(tkelvin));
+        return tfarenheit;
     }
 
-    public static double FarenheitVersKelvin(double tFarenheit) {
-        double tKelvin = (tFarenheit - 32) * 5 / 9 + 273.15;
-        return tKelvin;
+    public static double FarenheitVersKelvin(double tfarenheit) {
+        double tcelcius = FarenheitVersCelcius(tfarenheit);
+        double tkelvin = CelciusVersKelvin(tcelcius);
+        return tkelvin;
     }
-        
-        
-        /**
-         * @param args the command line arguments
-         */
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("""
+                           choisir la conversion:
+                           1= celcius vers kelvin
+                           2= Kelvin Vers celcius
+                           3= ferenheit vers celcius
+                           4=celcius vers farenheint
+                           5=kelcin vers farenheit
+                           6= farenheint vers kelvin""");
+        
+        int choix = sc.nextInt();
+        if (choix == 1) {
+            System.out.println("choisire une temperature en degré");
+            double temperaturec = sc.nextDouble();
+            double temperaturek = CelciusVersKelvin(temperaturec);
+            System.out.println("en kelvin la temerature est " + temperaturek);
+        } else {
+            if (choix == 2) {
+                System.out.println("choisire une temperature en kelvin");
+                double temperaturec = sc.nextDouble();
+                double temperaturek = KelvinVersCelcius(temperaturec);
+                System.out.println("en celcius la temerature est " + temperaturek);
+            } else {
+                if (choix == 3) {
+                System.out.println("choisire une temperature en farenheit");
+                double temperaturec = sc.nextDouble();
+                double temperaturek = FarenheitVersCelcius(temperaturec);
+                System.out.println("en celcius la temerature est "+temperaturek);
+                } else{
+                if (choix==4){
+                System.out.println("choisire une temperature en celcius");
+        double temperaturec = sc.nextDouble();
+        double temperaturek = CelciusVersFarenheit(temperaturec);
+        System.out.println("en farenheit la temerature est "+temperaturek);}else{
+                if (choix==5){
+                System.out.println("choisire une temperature en kelvin");
+        double temperaturec = sc.nextDouble();
+        double temperaturek = KelvinVersFarenheit(temperaturec);
+        System.out.println("en farenheit la temerature est "+temperaturek);} else{
+                if (choix==6){
+                System.out.println("choisire une temperature en farenheit");
+        double temperaturec = sc.nextDouble();
+        double temperaturek = FarenheitVersKelvin(temperaturec);
+        System.out.println("en kelvin la temerature est "+temperaturek);}}}}
+            }
+        }
 
-         Scanner sc = new Scanner(System.in);
-
-        System.out.print("Entrez une temperature en degres Celsius : ");
-        double tCelcius = sc.nextDouble();
-
-        System.out.println("En Kelvin : " + CelciusVersKelvin(tCelcius));
-        System.out.println("En Fahrenheit : " + CelciusVersFarenheit(tCelcius));
-
-        System.out.print("Entrez une temperature en Kelvin : \n");
-        double tKelvin = sc.nextDouble();
-        System.out.println("En Celsius : " + KelvinVersCelcius(tKelvin));
-        System.out.println("En Fahrenheit : " + KelvinVersFarenheit(tKelvin));
-
-        System.out.print("Entrez une temperature en Fahrenheit : \n");
-        double tFarenheit = sc.nextDouble();
-        System.out.println("En Celsius : " + FarenheitVersCelcius(tFarenheit));
-        System.out.println("En Kelvin : " + FarenheitVersKelvin(tFarenheit));
     }
+
 }
