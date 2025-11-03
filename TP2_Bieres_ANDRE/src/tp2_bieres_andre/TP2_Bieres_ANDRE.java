@@ -17,16 +17,20 @@ public class TP2_Bieres_ANDRE {
      */
     public static void main(String[] args) {
 
-        BouteilleBiere uneBiere = new BouteilleBiere("Cuvée des trolls", 7.0f, "Dubuisson");
-        uneBiere.lireEtiquette();
-
+        // Q11 — on utilise le constructeur à 3 paramètres
+        BouteilleBiere uneBiere = new BouteilleBiere("Cuvee des Trolls", 7.0f, "Dubuisson");
         BouteilleBiere leffe = new BouteilleBiere("Leffe", 6.6f, "Abbaye de Leffe");
         BouteilleBiere guinness = new BouteilleBiere("Guinness", 4.2f, "Guinness Brewery");
         BouteilleBiere punk = new BouteilleBiere("Punk IPA", 5.6f, "BrewDog");
 
-        leffe.lireEtiquette();
-        guinness.lireEtiquette();
-        punk.lireEtiquette();
-    }
+        // Q12 — on décapsule quelques bouteilles
+        uneBiere.Decapsuler();
+        guinness.Decapsuler();
 
+        // Q13/Q14 — affichage via println (utilise toString)
+        System.out.println(uneBiere);
+        System.out.println(leffe);
+        System.out.println(guinness);
+        System.out.println(punk);
+    }
 }
