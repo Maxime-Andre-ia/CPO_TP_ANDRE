@@ -16,24 +16,17 @@ public class TP2_Bieres_ANDRE {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    
-    BouteilleBiere uneBiere = new BouteilleBiere(); 
 
-    uneBiere.nom = "Cuvée des trolls";             
-    uneBiere.degreAlcool = 7.0f;                   
+        BouteilleBiere uneBiere = new BouteilleBiere("Cuvée des trolls", 7.0f, "Dubuisson");
+        uneBiere.lireEtiquette();
 
-   
-    uneBiere.brasserie = "Dubuisson";               
-    uneBiere.ouverte = false;                       
-    uneBiere.lireEtiquette();                       
+        BouteilleBiere leffe = new BouteilleBiere("Leffe", 6.6f, "Abbaye de Leffe");
+        BouteilleBiere guinness = new BouteilleBiere("Guinness", 4.2f, "Guinness Brewery");
+        BouteilleBiere punk = new BouteilleBiere("Punk IPA", 5.6f, "BrewDog");
 
-  
-    BouteilleBiere secondeBiere = new BouteilleBiere(); 
-    secondeBiere.nom = "Leffe";                         
-    secondeBiere.degreAlcool = 6.6f;                    
-    secondeBiere.brasserie = "Abbaye de Leffe";         
-    secondeBiere.ouverte = false;
-    secondeBiere.lireEtiquette();                       
+        leffe.lireEtiquette();
+        guinness.lireEtiquette();
+        punk.lireEtiquette();
+    }
 
-        
 }
