@@ -11,6 +11,7 @@ import java.util.Scanner;
  * @author maxim
  */
 public class TP1_manipNombresInt_ANDRE {
+    
 
     /**
      * @param args the command line arguments
