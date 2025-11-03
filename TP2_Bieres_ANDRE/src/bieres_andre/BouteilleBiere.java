@@ -10,42 +10,43 @@ package bieres_andre;
  */
 public class BouteilleBiere {
 
+    
     String nom;
     float degreAlcool;
     String brasserie;
     boolean ouverte;
 
+    
     public void lireEtiquette() {
-        System.out.println("Bouteille de " + nom + " (" + degreAlcool + " degrés)");
+        System.out.println("Bouteille de " + nom + " (" + degreAlcool + " degres)");
         System.out.println("Brasserie : " + brasserie);
     }
+
+    public BouteilleBiere() { }
 
     public BouteilleBiere(String unNom, float unDegre, String uneBrasserie) {
         nom = unNom;
         degreAlcool = unDegre;
         brasserie = uneBrasserie;
-        ouverte = false; // par défaut, la bouteille est fermée
+        ouverte = false;
     }
 
     public boolean Decapsuler() {
-        if (!ouverte) {          // si la bouteille était fermée
-            ouverte = true;      // on l'ouvre
-            return true;         // succès
+        if (!ouverte) {
+            ouverte = true;
+            return true;
         } else {
-            System.out.println("erreur : biere deja ouverte");
-            return false;        // échec
+            System.out.println("erreur : biere dejà ouverte");
+            return false;
         }
     }
 
     @Override
     public String toString() {
         String chaine_a_retourner;
-        chaine_a_retourner = nom + " (" + degreAlcool + " degres Ouverte ? ";
-        if (ouverte == true) {
-            chaine_a_retourner += "oui";
-        } else {
-            chaine_a_retourner += "non";
-        }
+        chaine_a_retourner = nom + " (" + degreAlcool + " degres) Ouverte ? ";
+        if (ouverte) chaine_a_retourner += "oui";
+        else chaine_a_retourner += "non";
         return chaine_a_retourner;
     }
 }
