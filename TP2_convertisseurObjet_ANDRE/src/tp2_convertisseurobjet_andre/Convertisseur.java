@@ -11,12 +11,12 @@ package tp2_convertisseurobjet_andre;
 public class Convertisseur {
    int nbConversions;
 
-    // Q3: nbConversions initialisé à 0 dans le constructeur
+    
     public Convertisseur() {
         nbConversions = 0;
     }
 
-    // ⚠️ Méthodes NON static (Q3)
+    
     public double celsiusVersKelvin(double tC) {
         nbConversions++;
         return tC + 273.15;
@@ -49,7 +49,7 @@ public class Convertisseur {
 
     @Override
     public String toString() {
-        // Q3: exactement cette chaîne
+       
         return "nb de conversions" + nbConversions;
     }
 }
