@@ -17,13 +17,13 @@ public class TP2_convertisseurObjet_ANDRE {
      */
     public static void main(String[] args) {
 
-        try (Scanner sc = new Scanner(System.in) // Objet qui lit au clavier
+        try (Scanner sc = new Scanner(System.in) 
                 ) {
-            Convertisseur conv = new Convertisseur();   // Un convertisseur suffit pour le menu
-            int choix = -1; // valeur différente de 0 pour démarrer la boucle
-            // Boucle principale : on répète le menu tant que l'utilisateur ne tape pas 0
+            Convertisseur conv = new Convertisseur();   
+            int choix = -1; 
+           
             while (choix != 0) {
-                // 1) Afficher le menu
+                
                 System.out.println("\n=== Menu Convertisseur ===");
                 System.out.println("1) Celsius -> Kelvin");
                 System.out.println("2) Kelvin -> Celsius");
@@ -34,22 +34,21 @@ public class TP2_convertisseurObjet_ANDRE {
                 System.out.println("0) Quitter");
                 System.out.print("Choix : ");
 
-                // 2) Lire un entier au clavier (ex: 1, 2, 3, …)
-                // ⚠️ Version débutant : si tu tapes autre chose qu'un nombre entier, le programme plantera (c'est normal ici).
+                
                 choix = sc.nextInt();
 
                 if (choix == 0) {
                     System.out.println("Fin du programme. A bientot !");
-                    break; // on sort de la boucle
+                    break; 
                 }
 
-                // 3) Lire la valeur à convertir (un nombre réel)
+                
                 System.out.print("Temperature à convertir : ");
-                // ⚠️ Pareil : si tu tapes autre chose qu'un nombre (ex: du texte), ça plantera dans cette version simple.
+                
                 double val = sc.nextDouble();
 
-                double res; // résultat de la conversion
-                // 4) Selon le choix, on appelle la bonne méthode et on affiche
+                double res; 
+                
                 switch (choix) {
                     case 1 -> {
                         res = conv.celsiusVersKelvin(val);
