@@ -4,6 +4,10 @@
  */
 package tp3_heroic_fantasy_andre;
 
+import Armes.Epee;
+import Armes.Baton;
+import java.util.ArrayList;
+
 /**
  *
  * @author maxim
@@ -25,5 +29,16 @@ public class TP3_Heroic_Fantasy_ANDRE {
         System.out.println(epee2);
         System.out.println(baton1);
         System.out.println(baton2);
+
+        ArrayList<Object> armes = new ArrayList<>();
+
+        armes.add(epee1);
+        armes.add(epee2);
+        armes.add(baton1);
+        armes.add(baton2);
+
+        for (int i = 0; i < armes.size(); i++) {
+            System.out.println(armes.get(i));
+        }
     }
 }
