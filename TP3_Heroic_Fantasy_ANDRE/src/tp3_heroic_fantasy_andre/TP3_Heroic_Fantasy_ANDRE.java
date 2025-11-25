@@ -73,6 +73,34 @@ public class TP3_Heroic_Fantasy_ANDRE {
             // Cela appelle la méthode toString() de la classe Personnage
             System.out.println(personnages.get(i));
         }
-    }
+        // Q38 : Créer un guerrier, un magicien, 3 bâtons et 3 épées
+        Magicien gandalf = new Magicien("Gandalf", 65, true);
+        Guerrier conan = new Guerrier("Conan", 78, false);
 
+        Baton b1 = new Baton("Chêne", 4, 5);
+        Baton b2 = new Baton("Charme", 5, 6);
+        Baton b3 = new Baton("Sureau", 6, 4);
+
+        Epee e1 = new Epee("Excalibur", 7, 5);
+        Epee e2 = new Epee("Durandal", 4, 7);
+        Epee e3 = new Epee("Katana", 6, 3);
+
+        // Q39 : Guerrier : Ajout de 1 bâton et 2 épées, puis équipement de la 1ère épée
+        conan.ajouterArme(b1);
+        conan.ajouterArme(e1);
+        conan.ajouterArme(e2);
+
+        conan.equiperArme("Excalibur"); // On l'équipe
+
+        // Q40 : Magicien : Ajout de 2 bâtons et 1 épée
+        gandalf.ajouterArme(b2);
+        gandalf.ajouterArme(b3);
+        gandalf.ajouterArme(e3);
+
+        // (Q41 : Nombre d'armes préférées - on a sauté le challenge Q37 pour l'instant)
+        // Q42 : Afficher les caractéristiques
+        System.out.println("\n--- État final des personnages ---");
+        System.out.println(conan);   // Doit afficher l'arme Excalibur en main
+        System.out.println(gandalf); // Doit afficher "Pas d'arme en main" (car on ne l'a pas équipé)
+    }
 }
