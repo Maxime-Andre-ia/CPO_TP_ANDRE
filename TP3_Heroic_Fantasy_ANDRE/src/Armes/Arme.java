@@ -20,7 +20,7 @@ public abstract class Arme {
             this.niveauAttaque = niveauAttaque;
         } else {
             this.niveauAttaque = 100; 
-            System.out.println("Le niveau d'attaque a été plafonné à 100.");
+            System.out.println("Le niveau d'attaque a été plafonne à 100.");
         }
     }
 
