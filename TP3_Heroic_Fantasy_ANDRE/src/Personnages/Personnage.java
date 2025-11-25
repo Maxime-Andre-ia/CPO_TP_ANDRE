@@ -1,24 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Personnages;
 
-
-
-import Armes.*;
+import tp3_heroic_fantasy_andre.EtreVivant;import Armes.*;
 import java.util.ArrayList;
 
-public abstract class Personnage {
+public abstract class Personnage implements EtreVivant {
 
     // Q43 : Compteur statique partagé par TOUS les objets Personnage
-    // "static" veut dire que la variable appartient à la classe, pas à un objet unique
     private static int nbPersonnages = 0; 
 
-    
-    private ArrayList<Arme> inventaire = new ArrayList<Arme>();
+    private final ArrayList<Arme> inventaire = new ArrayList<>();
     private Arme armeEnMain = null;
-    private String nom;
+    private final String nom;
     private int niveauVie;
 
     public Personnage(String nomPersonnage, int vie) {
@@ -66,7 +58,7 @@ public abstract class Personnage {
                 return;
             }
         }
-        System.out.println("Arme " + nomArme + " non trouvée dans l'inventaire de " + nom);
+        System.out.println("Arme " + nomArme + " non trouvee dans l'inventaire de " + nom);
     }
 
     // Q36 : Méthode toString complète
@@ -80,4 +72,26 @@ public abstract class Personnage {
         }
         return info;
     }
+
+    // Q50 : La fatigue fait perdre 10 points
+    @Override
+    public void seFatiguer() {
+        niveauVie -= 10;
+        System.out.println(nom + " se fatigue (-10 PV).");
+    }
+
+    // Q51 : Est vivant si vie > 0
+    @Override
+    public boolean estVivant() {
+        return niveauVie > 0;
+    }
+
+    // Q52 : Subir une attaque (baisse les PV)
+    @Override
+    public void estAttaque(int points) {
+        niveauVie -= points;
+        System.out.println(nom + " est attaque et perd " + points + " points !");
+    }
+    // Q53 : Méthode abstraite pour l'attaque (à définir dans Guerrier et Magicien)
+    public abstract void attaquer(Personnage cible);
 }
