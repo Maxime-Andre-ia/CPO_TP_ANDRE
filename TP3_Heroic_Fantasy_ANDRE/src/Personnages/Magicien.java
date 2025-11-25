@@ -4,25 +4,46 @@
  */
 package Personnages;
 
-import Personnages.Personnage;
-
 /**
  *
  * @author maxim
  */
 public class Magicien extends Personnage {
 
-    // Q23 : propre au magicien
+    // Q44 : Compteur statique
+    private static int nbMagiciens = 0;
+
+    // Q23 : Attribut d'instance
     private boolean confirme;   // true = confirmé, false = novice
 
-    // Q24 : initialiser confirmé / novice dans le constructeur
+    // Q24 & Q45 : Constructeur
     public Magicien(String nom, int vie, boolean estConfirme) {
-        super(nom, vie);        // initialise nom et niveauVie dans Personnage
-        confirme = estConfirme;
+        super(nom, vie);
+        this.confirme = estConfirme;
+        
+        nbMagiciens++;
     }
 
-    // Q25 : setter pour cette propriété
+    // Q25 : Setter
     public void setConfirme(boolean estConfirme) {
-        confirme = estConfirme;
+        this.confirme = estConfirme;
+    }
+
+    // Getter (utile pour les combats)
+    public boolean getConfirme() {
+        return confirme;
+    }
+
+    // Méthode statique pour lire le nombre de magiciens
+    public static int getNbMagiciens() {
+        return nbMagiciens;
+    }
+    
+    // Q46 : Destructeur
+    @Override
+    protected void finalize() {
+        if (nbMagiciens > 0) {
+            nbMagiciens--;
+        }
     }
 }
