@@ -47,4 +47,39 @@ public class Guerrier extends Personnage {
             nbGuerriers--;
         }
     }
+
+    @Override
+    public void attaquer(Personnage cible) {
+        // On vérifie d'abord si le guerrier a une arme
+        if (getArmeEnMain() != null) {
+            
+            // 1. Récupérer le niveau d'attaque de l'arme
+            int degats = getArmeEnMain().getNiveauAttaque();
+
+            // 2. Si c'est une épée, on applique le multiplicateur de finesse
+            // "instanceof" permet de vérifier si l'arme est bien de type Epee
+            if (getArmeEnMain() instanceof Armes.Epee) {
+                // On "cast" (transforme) l'arme en Epee pour accéder à getFinesse()
+                int finesse = ((Armes.Epee) getArmeEnMain()).getFinesse();
+                degats *= finesse;
+            }
+
+            // 3. Si le guerrier est à cheval, dégâts divisés par 2
+            if (this.aCheval) {
+                degats /= 2;
+            }
+
+            // 4. Le guerrier se fatigue
+            seFatiguer();
+
+            // 5. On applique les dégâts
+            System.out.println(getNom() + " attaque " + cible.getNom() + " avec " + getArmeEnMain().getNom() + " !");
+            cible.estAttaque(degats);
+
+        } else {
+            // Cas où le guerrier n'a pas d'arme
+            System.out.println(getNom() + " essaie d'attaquer mais n'a pas d'arme !");
+            seFatiguer(); // Il se fatigue quand même à s'agiter
+        }
+    }
 }
