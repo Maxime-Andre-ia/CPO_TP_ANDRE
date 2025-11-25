@@ -8,6 +8,8 @@ package Personnages;
  *
  * @author maxim
  */
+
+
 public class Magicien extends Personnage {
 
     // Q44 : Compteur statique
@@ -44,6 +46,38 @@ public class Magicien extends Personnage {
     protected void finalize() {
         if (nbMagiciens > 0) {
             nbMagiciens--;
+        }
+    }
+
+    // Q53 : L'attaque du Magicien (VERSION UNIQUE ET CORRECTE)
+    @Override
+    public void attaquer(Personnage cible) {
+        if (getArmeEnMain() != null) {
+            
+            // 1. Récupérer le niveau d'attaque de l'arme
+            int degats = getArmeEnMain().getNiveauAttaque();
+
+            // 2. Si c'est un Bâton, on multiplie par l'âge
+            if (getArmeEnMain() instanceof Armes.Baton baton) {
+                int age = baton.getAge();
+                degats *= age;
+            }
+
+            // 3. Si le magicien est confirmé, dégâts divisés par 2
+            if (this.confirme) {
+                degats /= 2;
+            }
+
+            // 4. Le magicien se fatigue
+            seFatiguer();
+
+            // 5. On applique les dégâts
+            System.out.println(getNom() + " attaque " + cible.getNom() + " avec " + getArmeEnMain().getNom() + " !");
+            cible.estAttaque(degats);
+
+        } else {
+            System.out.println(getNom() + " essaie d'attaquer mais n'a pas d'arme !");
+            seFatiguer();
         }
     }
 }
