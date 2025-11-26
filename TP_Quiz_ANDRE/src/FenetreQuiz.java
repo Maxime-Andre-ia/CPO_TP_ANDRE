@@ -22,6 +22,14 @@ public class FenetreQuiz extends javax.swing.JFrame {
      */
     public FenetreQuiz() {
         initComponents();
+        initialiserQuestions();
+        afficherQuestionCourante();
+        jButton1.setFocusPainted(false);
+        jButton2.setFocusable(false);
+        jButton3.setFocusable(false);
+        jButton4.setFocusable(false);
+        jButton5.setFocusable(false);
+
     }
 
     /**
@@ -47,6 +55,11 @@ public class FenetreQuiz extends javax.swing.JFrame {
         jLabel1.setText("lblQuestion");
 
         jButton1.setText("btnRep1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("btnRep2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -56,8 +69,18 @@ public class FenetreQuiz extends javax.swing.JFrame {
         });
 
         jButton3.setText("btnRep3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("btnRep4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("lblMessage");
 
@@ -129,12 +152,41 @@ public class FenetreQuiz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+verifierReponse(2);    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+indexQuestionCourante++;
+    
+    // 2. On vérifie s'il reste des questions
+    if (indexQuestionCourante < listeQuestions.size()) {
+        // --- CAS 1 : Il reste des questions ---
+        afficherQuestionCourante(); 
+        
+    } else {
+        // --- CAS 2 : C'est fini ! (Étape 6 du TP) ---
+        jLabel2.setText("Quiz terminé !");
+        
+        // On affiche le score final (ex: Score : 3 / 5)
+        jLabel3.setText("Final : " + score + " / " + listeQuestions.size());
+        
+        // On désactive le bouton "Suivant" car il n'y a plus rien après
+        jButton5.setEnabled(false);
+        
+        // On désactive aussi les réponses pour faire propre
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+    }    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    verifierReponse(1);    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    verifierReponse(3);    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    verifierReponse(4);    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,7 +225,6 @@ public class FenetreQuiz extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 private void initialiserQuestions() {
-        // On crée 5 questions
         listeQuestions.add(new Question("Quel mot-clé pour l'héritage ?", "extends", "implements", "inherits", "super", 1));
         listeQuestions.add(new Question("Variable pour vrai/faux ?", "int", "String", "boolean", "float", 3));
         listeQuestions.add(new Question("Point d'entrée du programme ?", "start()", "run()", "init()", "main()", 4));
@@ -183,22 +234,40 @@ private void initialiserQuestions() {
 
     private void afficherQuestionCourante() {
         if (indexQuestionCourante < listeQuestions.size()) {
-            // 1. Récupérer la question
             Question q = listeQuestions.get(indexQuestionCourante);
             
-            // 2. Mettre à jour les textes (J'utilise tes noms de variables : jLabel1, jButton1...)
             jLabel1.setText(q.getIntitule());
             jButton1.setText(q.getProposition1());
             jButton2.setText(q.getProposition2());
             jButton3.setText(q.getProposition3());
             jButton4.setText(q.getProposition4());
             
-            // 3. Réactiver les boutons et vider le message
             jButton1.setEnabled(true);
             jButton2.setEnabled(true);
             jButton3.setEnabled(true);
             jButton4.setEnabled(true);
-            jLabel2.setText(""); // Zone de message vide au début
+            jLabel2.setText(""); 
         }
     }
+    private void verifierReponse(int reponseUtilisateur) {
+
+        Question questionActuelle = listeQuestions.get(indexQuestionCourante);
+        int bonneReponse = questionActuelle.getIndexBonneReponse();
+        
+        if (reponseUtilisateur == bonneReponse) {
+            
+            jLabel2.setText("Bonne réponse !"); 
+            score = score + 1;                 
+            jLabel3.setText("Score : " + score); 
+        } else {
+            jLabel2.setText("Mauvaise réponse..."); 
+        }
+        
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+    }
 }
+
+
