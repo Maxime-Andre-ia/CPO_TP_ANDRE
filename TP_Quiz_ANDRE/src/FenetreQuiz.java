@@ -10,8 +10,10 @@ import java.util.ArrayList;
 public class FenetreQuiz extends javax.swing.JFrame {
     
     ArrayList<Question> listeQuestions = new ArrayList<>();
+    
     int indexQuestionCourante = 0;
     int score = 0;
+    
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FenetreQuiz.class.getName());
     
@@ -51,8 +53,11 @@ public class FenetreQuiz extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 300));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("lblQuestion");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 51, -1, -1));
 
         jButton1.setText("btnRep1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +65,7 @@ public class FenetreQuiz extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 84, -1, -1));
 
         jButton2.setText("btnRep2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +73,7 @@ public class FenetreQuiz extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 84, -1, -1));
 
         jButton3.setText("btnRep3");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +81,7 @@ public class FenetreQuiz extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 125, -1, -1));
 
         jButton4.setText("btnRep4");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -81,72 +89,21 @@ public class FenetreQuiz extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 125, -1, -1));
 
         jLabel2.setText("lblMessage");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 179, -1, -1));
 
-        jButton5.setText("btnSuivant");
+        jButton5.setText("Question Suivante");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 258, -1, -1));
 
-        jLabel3.setText("lblScore");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton1))
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton4)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jLabel2)))
-                .addContainerGap(106, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(190, 190, 190))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addContainerGap())))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel1)
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addGap(31, 31, 31)
-                .addComponent(jLabel2)
-                .addGap(22, 22, 22)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addGap(19, 19, 19))
-        );
+        jLabel3.setText("Score :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 217, 210, 27));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,22 +149,8 @@ indexQuestionCourante++;
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        // On a supprimé tout le bloc "try...catch" qui chargeait Nimbus.
+        // Maintenant, Java va utiliser le style par défaut qui accepte les couleurs !
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new FenetreQuiz().setVisible(true));
@@ -242,6 +185,11 @@ private void initialiserQuestions() {
             jButton3.setText(q.getProposition3());
             jButton4.setText(q.getProposition4());
             
+            jButton1.setBackground(null);
+            jButton2.setBackground(null);
+            jButton3.setBackground(null);
+            jButton4.setBackground(null);
+            
             jButton1.setEnabled(true);
             jButton2.setEnabled(true);
             jButton3.setEnabled(true);
@@ -250,24 +198,38 @@ private void initialiserQuestions() {
         }
     }
     private void verifierReponse(int reponseUtilisateur) {
+        Question q = listeQuestions.get(indexQuestionCourante);
+        int bonneReponse = q.getIndexBonneReponse();
 
-        Question questionActuelle = listeQuestions.get(indexQuestionCourante);
-        int bonneReponse = questionActuelle.getIndexBonneReponse();
-        
+        // Petite astuce pour retrouver quel bouton a été cliqué
+        javax.swing.JButton boutonClique = null;
+        if (reponseUtilisateur == 1) boutonClique = jButton1;
+        if (reponseUtilisateur == 2) boutonClique = jButton2;
+        if (reponseUtilisateur == 3) boutonClique = jButton3;
+        if (reponseUtilisateur == 4) boutonClique = jButton4;
+
         if (reponseUtilisateur == bonneReponse) {
+            // --- GAGNÉ : VERT ---
+            jLabel2.setText("Bonne réponse !");
+            score++;
+            jLabel3.setText("Score : " + score);
             
-            jLabel2.setText("Bonne réponse !"); 
-            score = score + 1;                 
-            jLabel3.setText("Score : " + score); 
+            if (boutonClique != null) boutonClique.setBackground(java.awt.Color.GREEN);
+
+            // Verrouillage total
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
+            jButton3.setEnabled(false);
+            jButton4.setEnabled(false);
         } else {
-            jLabel2.setText("Mauvaise réponse..."); 
+            // --- PERDU : ROUGE ---
+            jLabel2.setText("Faux ! Essaie encore...");
+            
+            if (boutonClique != null) boutonClique.setBackground(java.awt.Color.RED);
+
+            // Verrouillage ciblé
+            if (boutonClique != null) boutonClique.setEnabled(false);
         }
-        
-        jButton1.setEnabled(false);
-        jButton2.setEnabled(false);
-        jButton3.setEnabled(false);
-        jButton4.setEnabled(false);
     }
 }
-
 
