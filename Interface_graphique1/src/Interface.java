@@ -10,7 +10,6 @@
 public class Interface extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Interface.class.getName());
-
     /**
      * Creates new form Interface
      */
@@ -27,50 +26,33 @@ public class Interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ZoneTextes = new javax.swing.JLabel();
+        ZoneBoutton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel1.setText("Bonjour");
+        ZoneTextes.setBackground(new java.awt.Color(255, 255, 255));
+        ZoneTextes.setFont(new java.awt.Font("Segoe Print", 0, 24)); // NOI18N
+        ZoneTextes.setForeground(new java.awt.Color(255, 51, 51));
+        ZoneTextes.setText("Bonjour");
+        getContentPane().add(ZoneTextes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
 
-        jButton1.setText("Validez Ici");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ZoneBoutton.setText("Validez Ici");
+        ZoneBoutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ZoneBouttonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
-                .addContainerGap(188, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(jLabel1)
-                .addGap(51, 51, 51)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
-        );
+        getContentPane().add(ZoneBoutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 175, -1, 33));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void ZoneBouttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZoneBouttonActionPerformed
+    ZoneTextes.setText("hello");
+
+    }//GEN-LAST:event_ZoneBouttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,7 +80,7 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ZoneBoutton;
+    private javax.swing.JLabel ZoneTextes;
     // End of variables declaration//GEN-END:variables
 }
