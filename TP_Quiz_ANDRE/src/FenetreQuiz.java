@@ -114,22 +114,16 @@ verifierReponse(2);    }//GEN-LAST:event_jButton2ActionPerformed
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 indexQuestionCourante++;
     
-    // 2. On vérifie s'il reste des questions
     if (indexQuestionCourante < listeQuestions.size()) {
-        // --- CAS 1 : Il reste des questions ---
         afficherQuestionCourante(); 
         
     } else {
-        // --- CAS 2 : C'est fini ! (Étape 6 du TP) ---
         jLabel2.setText("Quiz terminé !");
         
-        // On affiche le score final (ex: Score : 3 / 5)
         jLabel3.setText("Final : " + score + " / " + listeQuestions.size());
         
-        // On désactive le bouton "Suivant" car il n'y a plus rien après
         jButton5.setEnabled(false);
         
-        // On désactive aussi les réponses pour faire propre
         jButton1.setEnabled(false);
         jButton2.setEnabled(false);
         jButton3.setEnabled(false);
@@ -149,8 +143,7 @@ indexQuestionCourante++;
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        // On a supprimé tout le bloc "try...catch" qui chargeait Nimbus.
-        // Maintenant, Java va utiliser le style par défaut qui accepte les couleurs !
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new FenetreQuiz().setVisible(true));
@@ -201,7 +194,6 @@ private void initialiserQuestions() {
         Question q = listeQuestions.get(indexQuestionCourante);
         int bonneReponse = q.getIndexBonneReponse();
 
-        // Petite astuce pour retrouver quel bouton a été cliqué
         javax.swing.JButton boutonClique = null;
         if (reponseUtilisateur == 1) boutonClique = jButton1;
         if (reponseUtilisateur == 2) boutonClique = jButton2;
@@ -209,25 +201,21 @@ private void initialiserQuestions() {
         if (reponseUtilisateur == 4) boutonClique = jButton4;
 
         if (reponseUtilisateur == bonneReponse) {
-            // --- GAGNÉ : VERT ---
             jLabel2.setText("Bonne réponse !");
             score++;
             jLabel3.setText("Score : " + score);
             
             if (boutonClique != null) boutonClique.setBackground(java.awt.Color.GREEN);
 
-            // Verrouillage total
             jButton1.setEnabled(false);
             jButton2.setEnabled(false);
             jButton3.setEnabled(false);
             jButton4.setEnabled(false);
         } else {
-            // --- PERDU : ROUGE ---
             jLabel2.setText("Faux ! Essaie encore...");
             
             if (boutonClique != null) boutonClique.setBackground(java.awt.Color.RED);
 
-            // Verrouillage ciblé
             if (boutonClique != null) boutonClique.setEnabled(false);
         }
     }
