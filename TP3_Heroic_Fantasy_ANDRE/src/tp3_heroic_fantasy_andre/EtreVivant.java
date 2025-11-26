@@ -6,7 +6,6 @@ package tp3_heroic_fantasy_andre;
 
 public interface EtreVivant {
     
-    // Q48 : Déclaration des méthodes (sans le code, car c'est une interface)
     void seFatiguer();
     boolean estVivant();
     void estAttaque(int points);
