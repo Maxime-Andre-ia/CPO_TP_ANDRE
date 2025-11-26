@@ -52,6 +52,6 @@ public class Question {
     }
 
     public String getIntitule() {
-        return intitule;  // On renvoie la variable, on ne jette pas d'erreur !
+        return intitule;  
     }
 }
