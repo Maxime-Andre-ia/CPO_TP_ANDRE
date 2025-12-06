@@ -9,7 +9,7 @@ package miniprojet_cadenas_andre;
  * @author maxim
  */
 public class Cadenas extends javax.swing.JFrame {
-    
+    jeu maPartie = new jeu();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Cadenas.class.getName());
 
     /**
@@ -252,7 +252,34 @@ texte_chiffre_2.setText(String.valueOf(nombre));
     }//GEN-LAST:event_down_chiffre_3ActionPerformed
 
     private void bouton_testerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_testerActionPerformed
-        // TODO add your handling code here:
+int[] proposition = new int[4];
+
+proposition[0] = Integer.parseInt(texte_chiffre_0.getText());
+proposition[1] = Integer.parseInt(texte_chiffre_1.getText());
+proposition[2] = Integer.parseInt(texte_chiffre_2.getText());
+proposition[3] = Integer.parseInt(texte_chiffre_3.getText());
+
+int[] resultat = maPartie.verifierCombinaison(proposition);
+
+texte_nb_chiffres_exacts.setText(String.valueOf(resultat[0])); 
+
+texte_nb_chiffres_haut.setText(String.valueOf(resultat[1]));   
+
+texte_nb_chiffres_bas.setText(String.valueOf(resultat[2]));    
+
+int essais = maPartie.getTentativeActuelle();
+int max = maPartie.getMaxTentatives();
+texte_tentatives.setText(essais + " sur " + max);
+
+
+if (resultat[0] == 4) {
+    javax.swing.JOptionPane.showMessageDialog(this, "Bravo ! Vous avez trouvé le code !");
+    bouton_tester.setEnabled(false); 
+} 
+else if (essais >= max) {
+    javax.swing.JOptionPane.showMessageDialog(this, "Perdu ! Retentez votre chance.");
+    bouton_tester.setEnabled(false); 
+}       
     }//GEN-LAST:event_bouton_testerActionPerformed
 
     private void up_chiffre_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_3ActionPerformed
